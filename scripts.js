@@ -11,6 +11,43 @@ let estadisticas = [
         valor () {
             return autos.length
         }
+    },
+    {
+        titulo: 'Precio total en autos',
+        valor () {
+            let valor = 0
+            autos.forEach(function (auto) {
+                let precio = parseInt(auto.precio)
+                valor = valor + precio
+            })
+            return '$' + valor
+        }
+    },
+    {
+        titulo: 'Auto mas caro',
+        valor () {
+            autoMasCaro = null
+            autos.forEach(function (auto) {
+                if (!autoMasCaro || autoMasCaro.precio < auto.precio)
+                    autoMasCaro = auto
+            })
+            if (autoMasCaro)
+                return autoMasCaro.marca + ' ($' + autoMasCaro.precio + ')'
+            return 'Ninguno'
+        }
+    },
+    {
+        titulo: 'Auto mas economico',
+        valor () {
+            autoMasEconomico = null
+            autos.forEach(function (auto) {
+                if (!autoMasEconomico || autoMasEconomico.precio > auto.precio)
+                    autoMasEconomico = auto
+            })
+            if (autoMasEconomico)
+                return autoMasEconomico.marca + ' ($' + autoMasEconomico.precio + ')'
+            return 'Ninguno'
+        }
     }
 ]
 
