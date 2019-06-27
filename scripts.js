@@ -1,4 +1,4 @@
-var autos = [];
+
 
 let formulario = document.getElementById("form-carga");
 
