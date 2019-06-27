@@ -37,12 +37,14 @@ var estadisticas = [
         titulo: 'Auto más economico',
         valor () {
 
-            var min = autos[0].precio;
-            autos.forEach(auto => {
-                if (auto.precio < min) {
-                    min = auto.precio
-                }
-			});
+        		if(autos.length!=0){
+	            var min = autos[0].precio;
+	            autos.forEach(auto => {
+	                if (auto.precio < min) {
+	                    min = auto.precio
+	                }
+							});
+						}
 			return min
         }
     }
