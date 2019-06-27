@@ -15,35 +15,41 @@ var estadisticas = [
             var valorTemporal = 0;
             autos.forEach(auto => {
 				valorTemporal += parseInt(auto.precio)
+				parseInt(valorTemporal += auto.precio)
 			});
-
-			return valorTemporal;
+			return `$${valorTemporal}`
         }
     },
     {
         titulo: 'Auto más caro',
         valor () {
             var max = 0;
+            var marca = '';
 
             autos.forEach(auto => {
                 if (auto.precio > max) {
                     max = auto.precio
+                    marca = auto.marca
 				}
-			});
-			return max
+            });
+
+			return `${marca} ($ ${max})`
         }
     },
     {
         titulo: 'Auto más economico',
         valor () {
 
+            var marca = '';
             var min = autos[0].precio;
+
             autos.forEach(auto => {
                 if (auto.precio < min) {
-                    min = auto.precio
+                    min = auto.precio 
+                    marca = auto.marca
                 }
 			});
-			return min
+			return `${marca} ($ ${min})`
         }
     }
 ];
