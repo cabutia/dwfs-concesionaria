@@ -1,4 +1,4 @@
-
+var autos = [];
 
 let formulario = document.getElementById("form-carga");
 
@@ -123,3 +123,13 @@ function actualizarListaDeAutos() {
 }
 
 actualizarListaDeAutos();
+
+let eliminar = document.getElementById("Eliminar")
+
+function eliminarUltimo() {
+	autos.pop()
+	actualizarEstadisticas()
+	actualizarListaDeAutos()
+}
+
+eliminar.addEventListener("click",eliminarUltimo)
