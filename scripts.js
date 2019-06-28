@@ -17,7 +17,7 @@ var estadisticas = [
 				valorTemporal += parseInt(auto.precio)
 			});
 
-			return valorTemporal;
+			return "$" + valorTemporal;
         }
     },
     {
