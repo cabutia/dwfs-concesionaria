@@ -12,38 +12,43 @@ var estadisticas = [
     {
         titulo: 'Precio total en autos',
         valor () {
-            var valorTemporal = 0;
-            autos.forEach(auto => {
-				valorTemporal += parseInt(auto.precio)
-			});
-
-			return valorTemporal;
+            return autos.map(function (auto) {
+                return parseInt(auto.precio);
+            }).reduce(function (a, b) {
+                return a + b;
+            }, 0);
         }
     },
     {
         titulo: 'Auto más caro',
         valor () {
-            var max = 0;
+            const precios = autos.map(function (auto) {
+                return parseInt(auto.precio);
+            })
 
-            autos.forEach(auto => {
-                if (auto.precio > max) {
-                    max = auto.precio
-				}
-			});
-			return max
+            let precioMax = Math.max(...precios);
+
+            let auto = autos.find(obj => {
+              return obj.precio == precioMax
+            })
+
+            return auto.marca + " ($" + auto.precio + ")";
         }
     },
     {
         titulo: 'Auto más economico',
         valor () {
+            const precios = autos.map(function (auto) {
+                return parseInt(auto.precio);
+            })
 
-            var min = autos[0].precio;
-            autos.forEach(auto => {
-                if (auto.precio < min) {
-                    min = auto.precio
-                }
-			});
-			return min
+            let precioMax = Math.min(...precios);
+
+            let auto = autos.find(obj => {
+              return obj.precio == precioMax
+            })
+
+            return auto.marca + " ($" + auto.precio + ")";
         }
     }
 ];
