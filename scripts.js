@@ -124,7 +124,7 @@ function actualizarListaDeAutos() {
 
 actualizarListaDeAutos();
 
-let eliminar = document.getElementById("Eliminar")
+let eliminar = document.getElementByid("Eliminar")
 
 function eliminarUltimo() {
 	autos.pop()
@@ -132,4 +132,4 @@ function eliminarUltimo() {
 	actualizarListaDeAutos()
 }
 
-eliminar.addEventListener("click",eliminarUltimo)
+eliminar.addEventListener("click", eliminarUltimo)
