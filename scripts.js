@@ -123,3 +123,13 @@ function actualizarListaDeAutos() {
 }
 
 actualizarListaDeAutos();
+
+let eliminar = document.getElementById("eliminar")
+
+function eliminarUltimo() {
+	autos.pop()
+	actualizarEstadisticas()
+	actualizarListaDeAutos()
+}
+
+eliminar.addEventListener("click", eliminarUltimo)
