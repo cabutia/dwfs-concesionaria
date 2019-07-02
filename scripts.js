@@ -5,26 +5,22 @@ let formulario = document.getElementById("form-carga");
 var estadisticas = [
     {
         titulo: 'Total de autos',
-        valor () {
-            return autos.length
-        }
+        valor : () => autos.length
     },
     {
         titulo: 'Precio total en autos',
-        valor () {
+        valor: () => {
             var valorTemporal = 0;
             autos.forEach(auto => {
 				valorTemporal += parseInt(auto.precio)
 			});
-
 			return valorTemporal;
         }
     },
     {
         titulo: 'Auto más caro',
-        valor () {
+        valor: () => {
             var max = 0;
-
             autos.forEach(auto => {
                 if (auto.precio > max) {
                     max = auto.precio
@@ -35,8 +31,7 @@ var estadisticas = [
     },
     {
         titulo: 'Auto más economico',
-        valor () {
-
+        valor: () => {
             var min = autos[0].precio;
             autos.forEach(auto => {
                 if (auto.precio < min) {
@@ -76,7 +71,7 @@ function actualizarEstadisticas () {
 	let tabla = document.getElementById('estadisticas')
 	let datos = [];
 
-	estadisticas.forEach(function (obj) {
+	estadisticas.forEach(obj => {
 		datos.push(`<tr>
 			<td>${obj.titulo}</td>
 			<td>${obj.valor()}</td>
@@ -108,7 +103,7 @@ function actualizarListaDeAutos() {
                 <h3>No hay autos disponibles</h3>
         </div>`)
     } else {
-        autos.forEach(function (auto) {
+        autos.forEach(auto => {
                 datos.push(`<div class="car">
                         <h3>${auto.marca}</h3>
                         <p class="price">
