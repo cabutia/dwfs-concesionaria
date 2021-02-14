@@ -27,7 +27,8 @@ var estadisticas = [
 
             autos.forEach(auto => {
                 if (auto.precio > max) {
-                    max = auto.precio
+                    var temp = auto.precio
+                    max = auto.marca + " ($" + temp + ")" 
 				}
 			});
 			return max
@@ -37,10 +38,11 @@ var estadisticas = [
         titulo: 'Auto más economico',
         valor () {
 
-            var min = autos[0].precio;
+            var min = 9999999999999999999;
             autos.forEach(auto => {
                 if (auto.precio < min) {
-                    min = auto.precio
+                    var temp = auto.precio
+                    min = auto.marca + " ($" + temp + ")" 
                 }
 			});
 			return min
